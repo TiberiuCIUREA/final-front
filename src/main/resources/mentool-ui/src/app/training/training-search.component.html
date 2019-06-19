@@ -3,11 +3,6 @@
     <app-skill-picker (selectedSkillEmitter)="doSearch($event)"></app-skill-picker>
   </div>
   <div fxLayout="column">
-    <app-datepicker selectDatePlaceHolder="Select start date"
-                    (dateEmitter)="performSearchWithStartDate($event)">
-    </app-datepicker>
-  </div>
-  <div fxLayout="column">
     <app-datepicker selectDatePlaceHolder="Select end date"
                     (dateEmitter)="performSearchWithEndDate($event)">
     </app-datepicker>

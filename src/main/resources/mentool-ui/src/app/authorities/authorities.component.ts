@@ -11,7 +11,7 @@ import {AuthoritiesService} from "./authorities.service";
 })
 export class AuthoritiesComponent implements OnInit {
   dataSource: Authority[] = [];
-  displayedColumns: string[] = ['email', 'role', 'isNotLocked'];
+  displayedColumns: string[] = ['email', 'role', 'isNotLocked', 'lockUnlock'];
   dataIsAvailable: boolean = false;
   selectedRow: any = null;
 
@@ -67,6 +67,25 @@ export class AuthoritiesComponent implements OnInit {
     this.authorityService.unlockAuthority(this.selectedRow.email).subscribe(
       () => this.refreshData()
     )
+  }
+
+  lockUnlockSelectedUser(){
+    if (this.isAdmin()) {
+      return;
+    }
+    if (this.selectedRow.isNotLocked) {
+      this.authorityService.lockAuthority(this.selectedRow.email).subscribe(
+        () => this.refreshData()
+      )
+    } else {
+      this.authorityService.unlockAuthority(this.selectedRow.email).subscribe(
+        () => this.refreshData()
+      )
+    }
+  }
+
+  isAdmin(){
+    return this.selectedRow.role === "ADMIN";
   }
 
   shouldHighlightRow(row: any) {

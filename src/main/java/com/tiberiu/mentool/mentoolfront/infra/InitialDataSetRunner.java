@@ -21,11 +21,11 @@ public class InitialDataSetRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         AuthorityCreateCommand tiberiu = new AuthorityCreateCommand("tiberiu@tiberiu.com", Role.USER, "tiberiu");
-        AuthorityCreateCommand linus = new AuthorityCreateCommand("linus.coolguy@cool.com", Role.MENTOR, "linus");
-        AuthorityCreateCommand edward = new AuthorityCreateCommand("edward@edward.com", Role.MENTOR, "edward");
+        AuthorityCreateCommand thor = new AuthorityCreateCommand("thor@thor.com", Role.MENTOR, "thor");
+        AuthorityCreateCommand pogba = new AuthorityCreateCommand("pogba@pogba.com", Role.MENTOR, "pogba");
         AuthorityCreateCommand john = new AuthorityCreateCommand("john@john.com", Role.MENTOR, "john");
         AuthorityCreateCommand hercules = new AuthorityCreateCommand("hercules@power.com", Role.MENTOR, "power");
         AuthorityCreateCommand admin = new AuthorityCreateCommand("admin@admin.com", Role.ADMIN, "admin");
-        Stream.of(tiberiu, linus, edward, john, hercules, admin).forEach(addNewAuthority::addAuthorityFor);
+        Stream.of(tiberiu, thor, pogba, john, hercules, admin).forEach(addNewAuthority::addAuthorityFor);
     }
 }

@@ -1,19 +1,11 @@
 <div class="align-content-center">
   <div class="form-group">
-    <label>
-      Email Address:
-      <input type="text" [value]="username" class="form-control" readonly>
-    </label>
+    <label>Email Address:</label>
+    <input type="text" [value]="username" readonly style="border: none; padding-left: 10px">
   </div>
 </div>
 
-<mat-toolbar>Skills</mat-toolbar>
-<mat-form-field>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-</mat-form-field>
-<div class="mat-elevation-z8">
-
-
+<div class="align-content-center">
   <table mat-table *ngIf="dataSource" [dataSource]="dataSource">
     <!-- Skill Name -->
     <ng-container matColumnDef="skillName">
